@@ -19,7 +19,7 @@ const Form = ({ children, submitButton }: Props) => {
   const handleSubmit = (e: React.FormEvent) => {
     // alert('A name was submitted: ' + this.state.value);
     e.preventDefault();
-    reset()
+    // reset()
     console.log('🚀 ~ file: Form.tsx ~ line 18 ~ handleSubmit ~ e', e);
   };
 
