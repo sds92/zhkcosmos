@@ -3,10 +3,10 @@ import React from 'react';
 type Props = {
   className: string;
   placeholder: string;
-  reset: () => void
+  // reset: () => void
 };
 
-const InputFooter = ({ className, placeholder, reset }: Props) => {
+const InputFooter = ({ className, placeholder }: Props) => {
   const [input, setInput] = React.useState<string>('');
   const [isValid, setIsValid] = React.useState<undefined | boolean>(undefined);
 
