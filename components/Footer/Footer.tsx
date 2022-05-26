@@ -38,8 +38,8 @@ const Footer = ({hidden}: FooterProps) => {
               <input type={'submit'} className={`border-2 w-[336px] text-center py-2 mt-2 cursor-pointer`} value={'Заказать звонок'}/>
             }
           >
-            <UI.InputFooter className={`w-full h-[56px] mt-4 mb-2`}/>
-            <UI.InputFooter className={`w-full h-[56px] mt-2`} />
+            <UI.InputFooter className={`w-full h-[56px] mt-4 mb-2`} placeholder={''}/>
+            <UI.InputFooter className={`w-full h-[56px] mt-2`} placeholder={''}/>
           </UI.Form>
         </div>
       </div>
