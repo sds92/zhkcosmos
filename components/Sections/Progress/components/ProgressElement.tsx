@@ -17,6 +17,9 @@ const ProgressElement = ({ data, i }: ProgressElementProps) => {
   return (
     <div key={`element${i} flex flex-col`}>
       <div className={`relative w-auto h-[163px] aspect-[336/163]`}>
+        <div>
+          
+        </div>
         <Image src={`/images/${data.image}`} alt={``} layout={'fill'} objectFit={'contain'} />
       </div>
       <div className={`${styles.el_title} py-4`}>{data.title}</div>
