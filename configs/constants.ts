@@ -142,7 +142,7 @@ export const SALES: Sales = {
   image: 'sales01.webp',
 };
 
-export type Mortgage = {
+export type MortgageHome = {
   title: string;
   bottomRow: {
     title: string;
@@ -150,7 +150,7 @@ export type Mortgage = {
   };
 };
 
-export const MORTGAGE: Mortgage = {
+export const MORTGAGE_HOME: MortgageHome = {
   title: 'Ипотека',
   bottomRow: {
     title: 'Приобрести жильё в ипотеку - это просто!',
@@ -160,6 +160,79 @@ export const MORTGAGE: Mortgage = {
       'Отправьте <br/>заявку',
       'Оформите <br/>сделку',
       'Въезжайте в <br/>вашу квартиру',
+    ],
+  },
+};
+
+export const MORTGAGE: {
+  title: string;
+  calculator: {
+    title: string;
+    filters: {
+      name: string;
+      title: string;
+      type: string;
+      minmax: number[];
+      placeholder: number;
+    }[];
+    reference: string;
+  };
+  programs: {
+    title: string;
+    filters: [
+      {
+        title: string;
+        name: string;
+        type: string;
+        values: string[][];
+      }
+    ];
+  };
+} = {
+  title: 'Ипотека',
+  calculator: {
+    title: 'Ипотечный калькулятор',
+    filters: [
+      {
+        name: 'price',
+        title: 'Стоимость квартиры, руб',
+        type: 'range',
+        minmax: [1000000, 30000000],
+        placeholder: 9000000,
+      },
+      {
+        name: 'duration',
+        title: 'Срок',
+        type: 'range',
+        minmax: [1, 15],
+        placeholder: 15,
+      },
+      {
+        name: 'initialFee',
+        title: 'Первоначальный взнос',
+        type: 'range',
+        minmax: [500000, 11000000],
+        placeholder: 1500000,
+      },
+    ],
+    reference:
+      '*расчетная сумма может иметь незначительную погрешность, вызванную особенностями расчетов в каждом конкретном банке или финансовой организации.',
+  },
+  programs: {
+    title: 'Тип программы',
+    filters: [
+      {
+        title: '',
+        name: 'mortgageProgram',
+        type: 'radio',
+        values: [
+          ['standard', 'Стандартная'],
+          ['preferential', 'Льготная'],
+          ['family', 'Семейная'],
+          ['subsidized', 'Субсидированная'],
+          ['all', 'Все'],
+        ],
+      },
     ],
   },
 };
@@ -258,6 +331,97 @@ export const APARTMENTS_LG: {
   text: 'Тем, кто рассматривает вариант объединения нескольких квартир или ценит авторские проекты интерьеров, подойдут квартиры в состоянии shell&core (без отделки). Такие квартиры предложены Вашему вниманию следующие квартиры. <br/> Покупателям квартир без отделки предлагается типовой дизайн-проект, призванный облегчить выбор дизайнерских и планировочных решений.',
 };
 
+type ApartmentKeys =
+  | 'id'
+  | 'number'
+  | 'title'
+  | 'rooms'
+  | 'floor'
+  | 'square'
+  | 'building'
+  | 'mortgage'
+  | 'text'
+  | 'categories'
+  | 'subTitle'
+  | 'stations'
+  | 'address'
+  | 'price'
+  | 'squarePrice'
+  | 'images';
+type ApartmentEntity = [name: ApartmentKeys, title: string];
+
+export const APARTMENT: {
+  title: string;
+  rooms: string;
+  floor: string;
+  square: string;
+  building: string;
+  squarePrice: string;
+  price: string;
+  mortgage: string;
+  entities: ApartmentEntity[];
+} = {
+  title: 'Квартира в ЖК Космос',
+  rooms: 'Комнат',
+  floor: 'Этаж',
+  square: 'Площадь',
+  building: 'Корпус',
+  squarePrice: 'Цена за м',
+  price: 'Стоимость',
+  mortgage: 'Ипотека',
+  entities: [
+    ['title', 'Квартира в ЖК Космос'],
+    ['rooms', 'Комнат'],
+    ['floor', 'Этаж'],
+    ['square', 'Площадь'],
+    ['building', 'Корпус'],
+    ['squarePrice', 'Цена за м'],
+    ['price', 'Стоимость'],
+    ['mortgage', 'Ипотека'],
+  ],
+};
+
+export const APARTMENT_MORGAGE: {
+  filters: {
+    name: string;
+    title: string;
+    type: string;
+    minmax: number[];
+    placeholder: number;
+  }[];
+} = {
+  filters: [
+    {
+      name: 'duration',
+      title: 'Срок',
+      type: 'range',
+      minmax: [1, 15],
+      placeholder: 15,
+    },
+    {
+      name: 'initialFee',
+      title: 'Первоначальный взнос',
+      type: 'range',
+      minmax: [500000, 11000000],
+      placeholder: 1500000,
+    },
+  ],
+};
+
+export const MORTGAGE_SAMPLE: {
+  id: string;
+  title: string;
+  fee: number;
+  duration: number;
+  rate: number;
+} = {
+  id: '1',
+  title: 'Тинькофф',
+  fee: 47000,
+  duration: 30,
+  rate: 4.7,
+};
+
 export const FOOTER: {
   title: string;
   workingHoars: string;
@@ -336,4 +500,72 @@ export const GALLERY: {
       images: ['interior01.webp', 'interior02.webp', 'interior03.webp'],
     },
   ],
+};
+
+export const PROGRESS: {
+  title: string;
+  elements: {
+    title: string;
+    text: string;
+    image: string;
+  }[]
+} = {
+  title: 'Ход работы',
+  elements: [
+    {
+      title:'Январь 2022',
+      text: 'Техническая отделка, благоустройство, ввод в эксплуатацию.',
+      image: 'progress01.webp'
+    },
+    {
+      title:'Январь 2022',
+      text: 'Техническая отделка, благоустройство, ввод в эксплуатацию.',
+      image: 'progress01.webp'
+    },
+    {
+      title:'Январь 2022',
+      text: 'Техническая отделка, благоустройство, ввод в эксплуатацию.',
+      image: 'progress01.webp'
+    },
+    {
+      title:'Январь 2022',
+      text: 'Техническая отделка, благоустройство, ввод в эксплуатацию.',
+      image: 'progress01.webp'
+    },
+    {
+      title:'Январь 2022',
+      text: 'Техническая отделка, благоустройство, ввод в эксплуатацию.',
+      image: 'progress01.webp'
+    },
+    {
+      title:'Январь 2022',
+      text: 'Техническая отделка, благоустройство, ввод в эксплуатацию.',
+      image: 'progress01.webp'
+    },
+    {
+      title:'Январь 2022',
+      text: 'Техническая отделка, благоустройство, ввод в эксплуатацию.',
+      image: 'progress01.webp'
+    },
+    {
+      title:'Январь 2022',
+      text: 'Техническая отделка, благоустройство, ввод в эксплуатацию.',
+      image: 'progress01.webp'
+    },
+    {
+      title:'Январь 2022',
+      text: 'Техническая отделка, благоустройство, ввод в эксплуатацию.',
+      image: 'progress01.webp'
+    },
+    {
+      title:'Январь 2022',
+      text: 'Техническая отделка, благоустройство, ввод в эксплуатацию.',
+      image: 'progress01.webp'
+    },
+    {
+      title:'Январь 2022',
+      text: 'Техническая отделка, благоустройство, ввод в эксплуатацию.',
+      image: 'progress01.webp'
+    }
+  ]
 };

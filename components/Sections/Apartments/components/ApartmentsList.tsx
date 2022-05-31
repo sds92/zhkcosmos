@@ -1,10 +1,12 @@
 import React from 'react';
-import {ApartmentCard} from './'
+import { ApartmentCard } from './';
 
 type ApartmentsListProps = {
   lg?: boolean;
   data?: {
+    id: string;
     title: string;
+    categories: string[];
     subTitle: string;
     stations: string[];
     address: string;
@@ -12,16 +14,20 @@ type ApartmentsListProps = {
     squarePrice: number;
     images: string[];
   }[];
+  category: string;
 };
 
-const ApartmentsList = ({ lg, data }: ApartmentsListProps) => {
+const ApartmentsList = ({ lg, data, category }: ApartmentsListProps) => {
   return (
-    <div className={`flex flex-wrap`}>
+    <div className={`flex flex-wrap justify-between`}>
       {data?.map((apartment, i) => {
-        return (<ApartmentCard key={`apartment${i}`} data={apartment}/>)
+        return (
+          apartment.categories.includes(category) && <ApartmentCard key={`apartment${i}`} data={apartment} />
+        );
       })}
     </div>
   );
 };
 
 export default ApartmentsList;
+

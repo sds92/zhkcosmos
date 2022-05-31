@@ -10,10 +10,10 @@ const Home: NextPage = () => {
       <Sections.AboutHome />
       <Sections.News />
       <Sections.Sales />
-      <Sections.Mortgage />
+      <Sections.MortgageHome />
       <Sections.FotoGallery />
       <Sections.VirtualTour />
-      <Sections.ApartmentsSM />
+      <Sections.Apartments />
     </>
   );
 };

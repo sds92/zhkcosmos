@@ -6,3 +6,7 @@ export { default as QueryContainer } from './QueryContainer';
 export { default as FiltersApartments } from './FiltersApartments';
 export { default as ApartmentsList } from './ApartmentsList';
 export { default as ApartmentCard } from './ApartmentCard';
+export { default as CategoriesApartments } from './CategoriesApartments';
+export { default as ApartmentViewer } from './ApartmentViewer';
+export { default as SVGLocal } from './svg.local';
+export { default as Mortgage } from './Mortgage';

@@ -4,6 +4,7 @@ import { Sections } from 'components';
 const Ipoteka: NextPage = () => {
   return (
     <>
+      <Sections.MortgagePage />
     </>
   );
 };

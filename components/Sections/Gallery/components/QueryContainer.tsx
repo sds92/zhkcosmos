@@ -29,7 +29,7 @@ const Querier = ({ api, children }: QuerierProps) => {
 
   if (isLoading)
     return (
-      <div className={'h-full flex items-center justify-center'}>
+      <div className={'h-full relative grow flex items-center justify-center'}>
         <UI.Loader className={`scale-[1.5]`} />
       </div>
     );

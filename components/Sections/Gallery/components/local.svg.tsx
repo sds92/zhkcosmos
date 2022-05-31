@@ -1,15 +1,22 @@
 import React from 'react';
-const LongArrowRight = () => (
-  <svg
-    className={`pr-4`}
-    width='144'
-    height='24'
-    viewBox='0 0 144 24'
-    fill='none'
-    xmlns='http://www.w3.org/2000/svg'
-  >
-    <path d='M2 12L140 12' stroke='black' strokeWidth='2' strokeLinecap='round' strokeLinejoin='round' />
-    <path d='M134 5L141 12L134 19' stroke='black' strokeWidth='2' strokeLinecap='square' />
+
+const Close: React.FC<{ className: string }> = (props) => (
+  <svg width='30' height='30' viewBox='0 0 30 30' fill='none' xmlns='http://www.w3.org/2000/svg' {...props}>
+    <g clipPath='url(#clip0_461_9619)'>
+      <path
+        d='M1.55046 30.0001C1.15529 30.0001 0.760112 29.8498 0.45987 29.5473C-0.142873 28.9445 -0.142873 27.9673 0.45987 27.3646L27.3724 0.452058C27.9751 -0.150686 28.9523 -0.150686 29.5551 0.452058C30.1578 1.0548 30.1578 2.032 29.5551 2.63512L2.64293 29.5473C2.34043 29.8479 1.94526 30.0001 1.55046 30.0001Z'
+        fill='#1A222B'
+      />
+      <path
+        d='M28.4649 30.0001C28.0697 30.0001 27.6749 29.8498 27.3743 29.5473L0.45987 2.63512C-0.142873 2.032 -0.142873 1.0548 0.45987 0.452058C1.06261 -0.150686 2.03981 -0.150686 2.64293 0.452058L29.5551 27.3646C30.1578 27.9673 30.1578 28.9445 29.5551 29.5473C29.2526 29.8479 28.8578 30.0001 28.4649 30.0001Z'
+        fill='#1A222B'
+      />
+    </g>
+    <defs>
+      <clipPath id='clip0_461_9619'>
+        <rect width='30' height='30' fill='white' />
+      </clipPath>
+    </defs>
   </svg>
 );
 
@@ -48,7 +55,7 @@ const FotoGallerySliderArrowRight: React.FC<{ className: string; onClick: () => 
 );
 
 const LocalSVG = {
-  LongArrowRight,
+  Close,
   FotoGallerySliderArrowLeft,
   FotoGallerySliderArrowRight,
 };

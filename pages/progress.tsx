@@ -4,6 +4,7 @@ import { Sections } from 'components';
 const Progress: NextPage = () => {
   return (
     <>
+      <Sections.Progress />
     </>
   );
 };

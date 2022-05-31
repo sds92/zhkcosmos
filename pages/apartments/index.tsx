@@ -4,7 +4,7 @@ import { Sections } from 'components';
 const Appartments: NextPage = () => {
   return (
     <>
-       <Sections.ApartmentsLG/>
+       <Sections.Apartments/>
     </>
   );
 };

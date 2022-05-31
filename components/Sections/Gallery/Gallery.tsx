@@ -11,15 +11,15 @@ type GalleryProps = {};
 
 const Gallery = ({}: GalleryProps) => {
   const [isSlider, setIsSlider] = React.useState<boolean | number>(false);
+  
+
   return (
     <section className={`w-full cursor-default`}>
       <SectionTitle title={GALLERY.title} bg bc={['Главная', 'Галерея']} />
       <div className={`flex flex-col relative bg-[#1a222b] text-white min-h-screen h-full pb-10`}>
         <QueryContainer>
           {typeof isSlider === 'number' ? (
-            // <div className={`w-full max-w-zhk_max mx-auto min-h-full h-full grow flex`}>
-              <GallerySlider section={isSlider} />
-            // </div> 
+            <GallerySlider section={isSlider} switchOff={() => setIsSlider(false)} />
           ) : (
             <GalleryList
               onClick={(a: number) => {
