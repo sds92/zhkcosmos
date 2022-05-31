@@ -7,5 +7,6 @@ type Data = typeof fakeData;
 export default function handler(req: NextApiRequest, res: NextApiResponse<Data>) {
   const { id } = req.query;
   const apartment = fakeData.find((item) => item.id.toString() === id.toString())
+  // @ts-ignore
   res.status(200).json({ apartment });
 }
