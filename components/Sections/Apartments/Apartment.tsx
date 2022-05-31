@@ -28,7 +28,7 @@ const Apartment = ({data}: ApartmentProps) => {
     <section>
       <SectionTitle bg title={''} bc={['Главная', `Квартира ${data?.id || ''}`]} />
       <ApartmentViewer data={data} />
-      <div className={`max-w-zhk_max mx-auto`}>{data.text}</div>
+      <div className={`max-w-zhk_max mx-auto`}>{data?.text || ''}</div>
       <Mortgage/>
     </section>
   );
