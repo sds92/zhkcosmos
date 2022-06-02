@@ -1,7 +1,7 @@
 import React from 'react';
 
-const Close = () => (
-  <svg width='30' height='30' viewBox='0 0 30 30' fill='none' xmlns='http://www.w3.org/2000/svg'>
+const Close: React.FC<{ className?: string; onClick?: () => Promise<boolean> }> = (props) => (
+  <svg width='30' height='30' viewBox='0 0 30 30' fill='none' xmlns='http://www.w3.org/2000/svg' {...props}>
     <g clipPath='url(#clip0_187_1014)'>
       <path
         d='M1.54997 30.0001C1.1548 30.0001 0.759624 29.8498 0.459382 29.5473C-0.143362 28.9445 -0.143362 27.9673 0.459382 27.3646L27.3719 0.452058C27.9746 -0.150686 28.9518 -0.150686 29.5546 0.452058C30.1573 1.0548 30.1573 2.032 29.5546 2.63512L2.64244 29.5473C2.33994 29.8479 1.94477 30.0001 1.54997 30.0001Z'
@@ -20,8 +20,15 @@ const Close = () => (
   </svg>
 );
 
-const LogoNav = () => (
-  <svg width='100' height='132' viewBox='0 0 100 132' fill='none' xmlns='http://www.w3.org/2000/svg'>
+const LogoNav: React.FC<{ className?: string; onClick?: () => Promise<boolean> }> = (props) => (
+  <svg
+    width='100'
+    height='132'
+    viewBox='0 0 100 132'
+    fill='none'
+    xmlns='http://www.w3.org/2000/svg'
+    {...props}
+  >
     <path
       d='M7.55333 104.883V120.093H4.42586V104.883H7.55333ZM16.4979 104.883L10.6808 113.815H6.85486L6.45871 111.026H9.01281L12.7032 104.883H16.4979ZM13.2766 120.093L9.02324 113.292L11.1916 111.057L16.9879 120.093H13.2766Z'
       fill='white'
@@ -276,9 +283,9 @@ const LogoNav = () => (
   </svg>
 );
 
-const LocalSVG = {
+const SVGLocal = {
   Close,
-  LogoNav
+  LogoNav,
 };
 
-export default LocalSVG;
+export default SVGLocal;

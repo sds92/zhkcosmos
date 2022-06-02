@@ -4,6 +4,7 @@ import { Sections } from 'components';
 const Contacts: NextPage = () => {
   return (
     <>
+      <Sections.ContactsPage />
     </>
   );
 };

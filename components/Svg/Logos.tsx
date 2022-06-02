@@ -1,5 +1,5 @@
-const HeaderLogo = () => (
-  <svg width='100' height='131' viewBox='0 0 100 131' fill='none' xmlns='http://www.w3.org/2000/svg'>
+const HeaderLogo: React.FC<{ className?: string; onClick?: () => Promise<boolean> }> = (props) => (
+  <svg width='100' height='131' viewBox='0 0 100 131' fill='none' xmlns='http://www.w3.org/2000/svg' {...props}>
     <path
       d='M7.55333 104.089V119.183H4.42586V104.089H7.55333ZM16.4979 104.089L10.6808 112.952H6.85486L6.45871 110.184H9.01281L12.7032 104.089H16.4979ZM13.2766 119.183L9.02324 112.434L11.1916 110.216L16.9879 119.183H13.2766Z'
       fill='#1A222B'

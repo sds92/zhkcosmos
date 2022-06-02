@@ -1,5 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
+import { useRouter } from 'next/router';
 import { motion } from 'framer-motion';
 
 import { Text } from 'components';
@@ -16,6 +17,7 @@ type Props = {
 };
 
 const Navigation = ({ show, hover, navClick }: Props) => {
+  const router = useRouter(); 
   if (show) {
     return (
       <nav className={`fixed z-50 h-full w-full bg-[#1a222b] pr-[17px] cursor-default`}>
@@ -80,7 +82,7 @@ const Navigation = ({ show, hover, navClick }: Props) => {
 
         <div className={`z-10 relative mt-[185px] w-full flex justify-between max-w-zhk_max mx-auto`}>
           <div className={`flex flex-col`}>
-            <h2 className={styles.menu_title + ` mb-4`}>{NAVIGATION.menuTitle}</h2>
+            <h2 className={styles.menu_title + ` mb-4 cursor-pointer`} onClick={() => {router.replace('/');navClick()}}>{NAVIGATION.menuTitle}</h2>
             {NAVIGATION.menuItems.map(([menuItem, route], i) => {
               return (
                 <Link key={`menuitem${i}`} passHref href={route}>

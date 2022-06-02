@@ -4,6 +4,7 @@ import { Sections } from 'components';
 const Location: NextPage = () => {
   return (
     <>
+      <Sections.LocationPage />
     </>
   );
 };

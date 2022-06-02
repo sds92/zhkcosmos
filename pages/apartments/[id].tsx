@@ -2,6 +2,7 @@ import type { NextPage } from 'next';
 import { GetStaticPaths, GetStaticProps } from 'next';
 import { URLSearchParams } from 'url';
 import { Sections } from 'components';
+// import { fakeData } from 'data/fakeData';
 
 type ApartmentPageProps = {
   apartment: {
@@ -25,6 +26,7 @@ type ApartmentPageProps = {
 };
 
 const Appartment: NextPage<ApartmentPageProps> = ({ apartment }: ApartmentPageProps) => {
+  // console.log('🚀 ~ file: [id].tsx ~ line 29 ~ apartment', apartment);
   return (
     <>
       <Sections.Apartment data={apartment} />
@@ -40,8 +42,11 @@ interface IParams extends URLSearchParams {
 
 export const getStaticProps: GetStaticProps = async (context) => {
   const { id } = context.params as unknown as IParams;
-  const props = await fetch(`http://127.0.0.1:3000/api/apartments/${id}`).then((res) => res.json());
-  return { props };
+  const { fakeData } = require('../../data/fakeData');
+  // console.log("🚀 ~ file: [id].tsx ~ line 45 ~ constgetStaticProps:GetStaticProps= ~ fakeData", fakeData)
+  // const props = await fetch(`http://127.0.0.1:3000/api/apartments/${id}`).then((res) => res.json());
+  const apartment = fakeData.find((item: any) => item.id.toString() === id.toString());
+  return { props: {apartment} };
 };
 
 export const getStaticPaths: GetStaticPaths = () => {

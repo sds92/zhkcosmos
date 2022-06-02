@@ -1,11 +1,26 @@
 import React from 'react';
+import Link from 'next/link';
 import { useRouter } from 'next/router';
 
 import { Icons, Logos } from 'components';
-import LocalSVG from './components/local.svg';
+import SVGLocal from './components/svg.local';
 
 import { CONTACTS } from 'configs/constants';
 import styles from './Header.module.sass';
+
+const classNames = {
+  headerOuter: (a: boolean, b: boolean) =>
+    `w-full ${a ? 'absolute' : `${b ? 'absolute' : 'relative shadow-md bg-white'}`} flex justify-center ${
+      b ? 'pr-[17px]' : ''
+    }`,
+  header: styles.header + ` w-full flex justify-between relative z-[60]`,
+  menuButtonNav:
+    styles.close +
+    ` mt-4 relative overflow-hidden rounded-full w-[52px] h-[52px] hover:h-[159px] pt-2.5 flex items-start justify-center bg-white cursor-pointer transition-all`,
+  menuButtonHome:
+    styles.button_left +
+    ` bg-white shadow-lg hover:shadow-xl flex items-center justify-center cursor-pointer transition-all`,
+};
 
 type HeaderProps = {
   isNav: boolean;
@@ -15,50 +30,46 @@ type HeaderProps = {
 };
 
 const Header = ({ navClick, isNav, isHover, navHover }: HeaderProps) => {
-
   const router = useRouter();
-  const isHome = router.route === '/' ? true : false
+  const isHome = router.route === '/' ? true : false;
 
   return (
-    <header className={`w-full ${isHome ? 'absolute' : `${isNav ? 'absolute' : 'relative shadow-md bg-white'}`} flex justify-center ${isNav ? 'pr-[17px]' : ''}`}>
-      <div className={styles.header + ` w-full flex justify-between relative z-[60]`}>
-
+    <header className={classNames.headerOuter(isHome, isNav)}>
+      <div className={classNames.header}>
         <div className={`flex w-1/3`}>
           {isNav ? (
             <div
               onMouseEnter={() => navHover(true)}
               onMouseLeave={() => navHover(false)}
               onClick={navClick}
-              className={
-                styles.close +
-                ` mt-4 relative overflow-hidden rounded-full w-[52px] h-[52px] hover:h-[159px] pt-2.5 flex items-start justify-center bg-white cursor-pointer transition-all`
-              }
+              className={classNames.menuButtonNav}
             >
               <div className={`absolute -rotate-90 top-[85px]`}>Закрыть</div>
-              <LocalSVG.Close />
+              <SVGLocal.Close />
             </div>
           ) : (
-            <div
-              onClick={navClick}
-              className={
-                styles.button_left +
-                ` bg-white shadow-lg hover:shadow-xl flex items-center justify-center cursor-pointer transition-all`
-              }
-            >
+            <div onClick={navClick} className={classNames.menuButtonHome}>
               <Icons.Menu />
             </div>
           )}
-          <a title={'Позвонить'} className={`cursor-pointer font-bold text-white mt-8 ml-4`}>
+          <a title={'Позвонить'} className={`text-[22px] cursor-pointer font-bold text-white mt-7 ml-4`}>
             {CONTACTS.PHONE}
           </a>
         </div>
 
         <div
-          className={
-            styles.logo + ` ${isNav ? `` : `${isHome && styles.logoshadow} bg-white`} flex item-center justify-center`
-          }
+          className={` ${
+            isNav ? `` : `${isHome ? styles.logoshadow + ' pb-10 px-10' : ' pb-2'} bg-white`
+          } flex item-center justify-center`}
         >
-          {isNav ? <LocalSVG.LogoNav /> : <Logos.HeaderLogo />}
+          {isNav ? (
+            <SVGLocal.LogoNav className={`cursor-pointer`} onClick={() => router.replace('/')} />
+          ) : (
+            <Logos.HeaderLogo
+              className={`${isHome ? '' : 'h-[100px]'} cursor-pointer`}
+              onClick={() => router.replace('/')}
+            />
+          )}
         </div>
 
         <div className={`w-1/3 flex justify-end pl-2`}>
@@ -71,7 +82,6 @@ const Header = ({ navClick, isNav, isHover, navHover }: HeaderProps) => {
             Выбрать свою квартиру
           </div>
         </div>
-        
       </div>
     </header>
   );

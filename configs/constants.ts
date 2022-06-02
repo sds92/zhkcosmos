@@ -142,6 +142,12 @@ export const SALES: Sales = {
   image: 'sales01.webp',
 };
 
+export const SALES_PAGE: {
+  title: string;
+} = {
+  title: 'Акции и новости',
+};
+
 export type MortgageHome = {
   title: string;
   bottomRow: {
@@ -508,64 +514,112 @@ export const PROGRESS: {
     title: string;
     text: string;
     image: string;
-  }[]
+  }[];
 } = {
   title: 'Ход работы',
   elements: [
     {
-      title:'Январь 2022',
+      title: 'Январь 2022',
       text: 'Техническая отделка, благоустройство, ввод в эксплуатацию.',
-      image: 'progress01.webp'
+      image: 'progress01.webp',
     },
     {
-      title:'Январь 2022',
+      title: 'Январь 2022',
       text: 'Техническая отделка, благоустройство, ввод в эксплуатацию.',
-      image: 'progress01.webp'
+      image: 'progress01.webp',
     },
     {
-      title:'Январь 2022',
+      title: 'Январь 2022',
       text: 'Техническая отделка, благоустройство, ввод в эксплуатацию.',
-      image: 'progress01.webp'
+      image: 'progress01.webp',
     },
     {
-      title:'Январь 2022',
+      title: 'Январь 2022',
       text: 'Техническая отделка, благоустройство, ввод в эксплуатацию.',
-      image: 'progress01.webp'
+      image: 'progress01.webp',
     },
     {
-      title:'Январь 2022',
+      title: 'Январь 2022',
       text: 'Техническая отделка, благоустройство, ввод в эксплуатацию.',
-      image: 'progress01.webp'
+      image: 'progress01.webp',
     },
     {
-      title:'Январь 2022',
+      title: 'Январь 2022',
       text: 'Техническая отделка, благоустройство, ввод в эксплуатацию.',
-      image: 'progress01.webp'
+      image: 'progress01.webp',
     },
     {
-      title:'Январь 2022',
+      title: 'Январь 2022',
       text: 'Техническая отделка, благоустройство, ввод в эксплуатацию.',
-      image: 'progress01.webp'
+      image: 'progress01.webp',
     },
     {
-      title:'Январь 2022',
+      title: 'Январь 2022',
       text: 'Техническая отделка, благоустройство, ввод в эксплуатацию.',
-      image: 'progress01.webp'
+      image: 'progress01.webp',
     },
     {
-      title:'Январь 2022',
+      title: 'Январь 2022',
       text: 'Техническая отделка, благоустройство, ввод в эксплуатацию.',
-      image: 'progress01.webp'
+      image: 'progress01.webp',
     },
     {
-      title:'Январь 2022',
+      title: 'Январь 2022',
       text: 'Техническая отделка, благоустройство, ввод в эксплуатацию.',
-      image: 'progress01.webp'
+      image: 'progress01.webp',
     },
     {
-      title:'Январь 2022',
+      title: 'Январь 2022',
       text: 'Техническая отделка, благоустройство, ввод в эксплуатацию.',
-      image: 'progress01.webp'
-    }
-  ]
+      image: 'progress01.webp',
+    },
+  ],
+};
+
+export const LOCATION_PAGE: {
+  title: string;
+  sections: {
+    title: string;
+    left: string[];
+    right: {
+      text?: string;
+      iframe?: string;
+      images?: string[];
+    };
+  }[];
+} = {
+  title: 'Расположение',
+  sections: [
+    {
+      title: 'Информация о городе',
+      left: ['37<span style="font-weight: 700;font-size: 100px;">Км</span>', 'До Москвы'],
+      right: {
+        text: 'Город расположен в 37 км от центра Москвы, недалеко с аэропортом.',
+        images: ['location01.webp', 'location02.webp'],
+      },
+    },
+    {
+      title: 'Инфраструктура',
+      left: ['2', 'Трассы'],
+      right: {
+        text: 'Через Домодедово идут две трассы: М-4 Дон и Каширское шоссе. С 2015 году началось строительство объездной дороги вокруг района Авиационный с развязкой возле аэропорта. Продолжительность нового участка трассы – 6 км.',
+        images: ['location03.webp', 'location04.webp'],
+      },
+    },
+    {
+      title: 'Экология',
+      left: ['3', 'Чистых парка'],
+      right: {
+        text: 'Домодедово расположено в умеренно-континентальной зоне. Зимы достаточно мягкие, весна и осень – выпадает очень много осадков, лето влажное и теплое. Кроме реки Пахра, озер и других водоемов в городе нет. Населенный пункт окружают лесопарковые зоны.',
+        images: ['location05.webp', 'location06.webp', 'location07.webp'],
+      },
+    },
+    {
+      title: 'Карта',
+      left: ['ЖК', 'Офис продаж'],
+      right: {
+        iframe: 'https://api-maps.yandex.ru/frame/v1/-/CCUYiXRD-B',
+      },
+    },
+  ],
 };

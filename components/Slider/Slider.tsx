@@ -38,6 +38,10 @@ const Slider = ({ banner }: SliderProps) => {
     return child;
   });
 
+  React.useEffect(() => {
+   
+  }, []);
+
   return (
     <div className={`relative flex w-full justify-center min-h-[80vh] h-1`}>
       {SLIDER.map((sliderContent, i: number) => {
