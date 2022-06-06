@@ -7,6 +7,7 @@ type TopScreenerProps = {
 const TopScreener = ({children}: TopScreenerProps) => {
   return (
     <section className={'relative w-full'}>
+      <p>Сайт в разработке</p>
       {children}
     </section>
   );
